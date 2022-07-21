@@ -22,7 +22,7 @@ class Profile:
 
 def save_profiles_to_file(profiles_dict):
     with open('profiles.pkl','wb') as f:
-        pickle.dump(f, profiles_dict)
+        pickle.dump(profiles_dict,f)
 
 def load_profiles_from_file():
     with open('profiles.pkl','rb') as f:
@@ -40,7 +40,7 @@ def remove_profile(profiles_dict, name):
 def save_vector_to_profile(profiles_dict, name, vector):
     if name not in profiles_dict:
         add_empty_profile(profiles_dict, name)
-    profiles_dict[name].addVector(vector)
+    profiles_dict[name].add_vector(vector)
 
 def query_database(vector):
     profiles_dict = load_profiles_from_file()

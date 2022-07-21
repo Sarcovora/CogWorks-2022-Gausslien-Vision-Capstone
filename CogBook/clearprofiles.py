@@ -1,4 +1,4 @@
 import pickle
 a = {}
-with open("profile.pkl", 'wb') as f:
+with open("profiles.pkl", 'wb') as f:
     pickle.dump(a,f)
