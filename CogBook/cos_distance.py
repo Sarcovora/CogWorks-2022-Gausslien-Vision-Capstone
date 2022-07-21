@@ -1,6 +1,3 @@
-import numpy as np
-import facenet_models
-
 def cos_distance (d1, d2):
     """
     Calculates the cosine distance between two descriptor vectors.
@@ -18,6 +15,7 @@ def cos_distance (d1, d2):
     numpy.ndarray, shape-(M, N)
         An array of cosine distances which holds all MxN combination so of pairwise cosine distances.
     """
+    import numpy as np
 
     d1_mag = np.linalg.norm(d1, axis=1)
     d2_mag = np.linalg.norm(d2, axis=1)
