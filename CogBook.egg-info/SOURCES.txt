@@ -1,9 +1,0 @@
-README.md
-setup.py
-CogBook/__init__.py
-CogBook/cos_distance.py
-CogBook/profileFunctionality.py
-CogBook.egg-info/PKG-INFO
-CogBook.egg-info/SOURCES.txt
-CogBook.egg-info/dependency_links.txt
-CogBook.egg-info/top_level.txt
