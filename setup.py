@@ -1,10 +1,10 @@
 # contents of setup.py
 import setuptools
 
-PROJECT_NAME = "example_project"  # change this!
+PROJECT_NAME = "CogBook"  # change this!
 
 setuptools.setup(
-    name=PROJECT_NAME,
+    name=CogBook,
     version="1.0",
     packages=setuptools.find_packages(),
 )
