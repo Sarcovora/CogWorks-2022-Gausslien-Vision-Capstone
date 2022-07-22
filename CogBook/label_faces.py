@@ -3,13 +3,13 @@ from facenet_models import FacenetModel
 import matplotlib.pyplot as plt
 from matplotlib.patches import Rectangle
 from matplotlib.pyplot import text
-from CogBook import DETECTION_THRESHOLD, FACE_IDENTIFY_THRESHOLD
+from CogBook.label_config import settings 
 
 from PIL import Image
 
 from CogBook import query_database
 
-def label_faces(image_data, *, box_threshold=DETECTION_THRESHOLD, iden_threshold=FACE_IDENTIFY_THRESHOLD):
+def label_faces(image_data, *, box_threshold=settings.DETECTION_THRESHOLD, iden_threshold=settings.FACE_IDENTIFY_THRESHOLD):
     """
     Displays an image with boxes around people's faces and labels them with names.
 

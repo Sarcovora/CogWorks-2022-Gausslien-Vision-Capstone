@@ -1,8 +1,8 @@
 from facenet_models import FacenetModel
 import numpy as np
-from CogBook import DETECTION_THRESHOLD, FACE_IDENTIFY_THRESHOLD
+from CogBook.label_config import settings
 
-def get_descriptors(image_data, *, detect_thresh=DETECTION_THRESHOLD):
+def get_descriptors(image_data, *, detect_thresh=settings.DETECTION_THRESHOLD):
     """
     Returns a descriptors numpy array.
 
