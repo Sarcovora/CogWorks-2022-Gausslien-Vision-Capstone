@@ -28,7 +28,7 @@ def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
         
         # makes a folder to hold all the images in this group
         person_id = 'Person' + str(group_num+1)
-        new_folder_path = cwd / person_id
+        new_folder_path = cwd.parents[0] / person_id
         
         if Path.exists(new_folder_path):
             print("remove the folders from the previous run")
@@ -50,7 +50,7 @@ Tests to check if a single file can be moved properly
 def file_move_test(file_path: str, group_num: int):
     cwd = Path.cwd()
     person_id = 'Person' + str(group_num+1)
-    new_folder_path = cwd / person_id
+    new_folder_path = cwd.parents[0] / person_id
     
     print(new_folder_path)
     if Path.exists(new_folder_path):
