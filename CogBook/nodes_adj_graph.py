@@ -26,7 +26,7 @@ def nodes_adj_graph(image_paths:list):
     model = FacenetModel()
     descriptors = np.ndarray(N, dtype = np.ndarray)
     nodes = []
-    adj_graph = np.zeros(N, N)
+    adj_graph = np.zeros((N, N))
     
     for i in range(N):
         image = io.imread(image_paths[i])
