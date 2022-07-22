@@ -41,7 +41,6 @@ def label_faces(image_data):
     i = 0
     for box, prob in zip(boxes, probabilities):
         # draw the box on the screen
-        print("BOX:", box)
         ax.add_patch(Rectangle(box[:2], *(box[2:] - box[:2]), fill=None, lw=2, color="red"))
         # add names to the box
         ax.text(*box[:2],
