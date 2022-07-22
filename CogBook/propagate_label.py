@@ -9,6 +9,5 @@ def propagate_label(node, neighbors, adjacency_matrix):
             edge_weights[neighbor.label] = 0
         edge_weights[neighbor.label] += adjacency_matrix[node.id][neighbor.id]
 
-    print(edge_weights)
     if edge_weights:
         node.label = max(edge_weights, key=edge_weights.get)
