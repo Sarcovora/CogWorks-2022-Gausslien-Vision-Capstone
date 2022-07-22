@@ -8,7 +8,7 @@ from PIL import Image
 
 from profile_functionality import query_database
 
-def label_faces(image_data):
+def label_faces(image_data, *, box_threshold=0.97, iden_threshold=0.5):
     """
     Displays an image with boxes around people's faces and labels them with names.
 
@@ -46,17 +46,18 @@ def label_faces(image_data):
 
     names = []
     for d in descriptors:
-        names.append(query_database(d).capitalize())
+        names.append(query_database(d, iden_threshold).capitalize())
 
-    i = 0
-    for box, prob in zip(boxes, probabilities):
+
+    for box, prob, i in zip(boxes, probabilities, range(len(names))):
+        if prob<box_threshold:
+            continue
         # draw the box on the screen
         ax.add_patch(Rectangle(box[:2], *(box[2:] - box[:2]), fill=None, lw=2, color="red"))
         # add names to the box
         ax.text(*box[:2],
-                names[i],
+                names[i], #+" "+str(prob)
                 size=12,
                 va="center",
                 bbox=dict(boxstyle="round", ec=(1., 0.5, 0.5), fc=(1., 0.8, 0.8),))
-        i += 1
     plt.show()

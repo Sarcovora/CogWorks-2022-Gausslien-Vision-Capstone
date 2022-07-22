@@ -42,7 +42,7 @@ def save_vector_to_profile(profiles_dict, name, vector):
         add_empty_profile(profiles_dict, name)
     profiles_dict[name].add_vector(vector)
 
-def query_database(vector):
+def query_database(vector, iden_threshold):
     profiles_dict = load_profiles_from_file()
     
     mindist = 2
@@ -51,7 +51,7 @@ def query_database(vector):
         if  curdist < mindist:
             mindist = curdist
             minname = name
-    if mindist<0.5:
+    if mindist<iden_threshold:
         return minname
     else:
         return "unknown"
