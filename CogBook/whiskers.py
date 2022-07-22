@@ -2,12 +2,14 @@ import numpy as np
 import random
 from pathlib import Path
 
-"""
-The full whiskers algorithm
-Input: takes in the number of iterations, the list of nodes, and the adjacency matrix
-Output: doesn't return anything, but prints the grouping history at the end 
-        and organizes the images based on groupings
+""" The full whiskers algorithm
 
+Parameters:
+    iterations (int): number of iterations
+    nodes (list): list of all nodes
+    adj_matrix (np.array): the adjacency matrix
+
+Returns: None, but prints grouping history as a list and organizes the images based on their groupings
 """
 def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
     
@@ -42,6 +44,9 @@ def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
             print(new_file_path)
             Path(file_path).rename(new_file_path)
 
+"""
+Tests to check if a single file can be moved properly
+"""
 def file_move_test(file_path: str, group_num: int):
     cwd = Path.cwd()
     person_id = 'Person' + str(group_num+1)
