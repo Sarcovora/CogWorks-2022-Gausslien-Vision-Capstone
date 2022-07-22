@@ -33,7 +33,7 @@ def label_faces(image_data):
 
     names = []
     for d in descriptors:
-        names.append(query_database(d))
+        names.append(query_database(d).capitalize())
     
     fig, ax = plt.subplots()
     ax.imshow(image_data)
@@ -49,3 +49,4 @@ def label_faces(image_data):
                 va="center",
                 bbox=dict(boxstyle="round", ec=(1., 0.5, 0.5), fc=(1., 0.8, 0.8),))
         i += 1
+    plt.show()
