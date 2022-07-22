@@ -32,7 +32,7 @@ def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
         
             
 #         # moves the images in this group
-    count = 1
+    count = 0
 
     for key in groupings.keys():
         person_id = 'Person' + str(count+1)
