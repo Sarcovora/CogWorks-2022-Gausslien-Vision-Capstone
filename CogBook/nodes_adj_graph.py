@@ -3,6 +3,8 @@ import skimage.io as io
 import numpy as np
 from get_descriptors import get_descriptors
 from cos_distance import cos_distance
+from facenet_models import FacenetModel
+
 
 def nodes_adj_graph(image_paths:list):
     """
