@@ -1,7 +1,7 @@
 #haven't tested yet
 import skimage.io as io
 import numpy as np
-from facenet_models import FacenetModel
+from get_descriptors.py import get_descriptors
 from cos_distance.py import cos_distance
 
 def nodes_adj_graph(image_paths:list):
@@ -30,8 +30,7 @@ def nodes_adj_graph(image_paths:list):
         image = io.imread(image_paths[i])
         if image.shape[-1] == 4:
             image = image[..., :-1]
-            boxes, probabilities, landmarks = model.detect(image)
-            descriptors[i] = model.compute_descriptors(image, boxes)
+            descriptors[i] = get_descriptors(image)
         
     
     for i in range(N): 
