@@ -5,8 +5,10 @@ def propagate_label(node, neighbors, adjacency_matrix):
     # returns nothing, just updates in place
     edge_weights = {}
     for neighbor in neighbors:
-        edge_weights[neighbor.label] = adjacency_matrix[node.id][neighbor.id]
-        for key in edge_weights:
-            if neighbor.label == key:
-                edge_weights[key] = edge_weights.get(neighbor.label) + adjacency_matrix[node.id][neighbor.id]
-    node.label = max(edge_weights, key=edge_weights.get)
+        if neighbor.label not in edge_weights:
+            edge_weights[neighbor.label] = 0
+        edge_weights[neighbor.label] += adjacency_matrix[node.id][neighbor.id]
+
+    print(edge_weights)
+    if edge_weights:
+        node.label = max(edge_weights, key=edge_weights.get)
