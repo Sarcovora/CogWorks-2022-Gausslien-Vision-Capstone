@@ -1,4 +1,5 @@
 from facenet_models import FacenetModel
+import numpy as np
 
 def get_descriptors(image_data, *, detect_thresh=0.97):
     """
