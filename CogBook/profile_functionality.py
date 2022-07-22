@@ -47,8 +47,9 @@ def query_database(vector):
     
     mindist = 2
     for name, profile in profiles_dict.items():
-        if cos_distance(profile.avg_vector(),vector) < mindist:
-            mindist = cos_distance(profile.avg_vector(),vector)
+        curdist = cos_distance(profile.avg_vector().reshape(1,-1),vector.reshape(1,-1))
+        if  curdist < mindist:
+            mindist = curdist
             minname = name
     if mindist<0.5:
         return minname
