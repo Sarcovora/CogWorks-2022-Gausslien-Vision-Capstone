@@ -15,7 +15,7 @@ def nodes_adj_graph(image_paths:list):
     ----------
        nodes: List[Node], shape = (N,)
            List of nodes for each image
-       adj_matrix: np.array, shape = (N,N)
+       adj_graph: np.array, shape = (N,N)
            A numpy array storing the weighted adjacency matrix of all nodes
        
     """
