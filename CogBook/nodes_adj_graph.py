@@ -1,8 +1,8 @@
 #haven't tested yet
 import skimage.io as io
 import numpy as np
-from get_descriptors.py import get_descriptors
-from cos_distance.py import cos_distance
+from get_descriptors import get_descriptors
+from cos_distance import cos_distance
 
 def nodes_adj_graph(image_paths:list):
     """
