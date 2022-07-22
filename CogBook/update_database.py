@@ -33,10 +33,10 @@ for fileInfo in fileList:
     name, number = fileInfo[1].split(".")[0].split("_")
     
 
-    image = io.imread(str(fileInfo[0]))
+    img_data = io.imread(str(fileInfo[0]))
 
-    if image.shape[-1] == 4:
-        img_data = image[..., :-1]
+    if img_data.shape[-1] == 4:
+        img_data = img_data[..., :-1]
     
     # img_data = np.array(Image.open(fileInfo[0]))[:,:,:-1]
     descriptors = get_descriptors(img_data)
