@@ -18,4 +18,6 @@ def get_descriptors(image_data):
     model = FacenetModel()
     boxes, probabilities, _ = model.detect(image_data)
     descriptors = model.compute_descriptors(image_data, boxes)
+    for prob in probabilities:
+        print(prob)
     return descriptors
