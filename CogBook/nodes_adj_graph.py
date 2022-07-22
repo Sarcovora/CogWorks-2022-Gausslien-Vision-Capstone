@@ -39,6 +39,8 @@ def nodes_adj_graph(image_paths:list):
         for j in range(N):
             if (i == j):
                 continue
+            if (descriptors[i] is None or descriptors[j] is None):
+                continue
             distance = cos_distance(descriptors[i].reshape(1, 512), descriptors[j].reshape(1, 512))
             if (distance < threshold):
                 adj_graph[i,j] = 1/(distance**2)
