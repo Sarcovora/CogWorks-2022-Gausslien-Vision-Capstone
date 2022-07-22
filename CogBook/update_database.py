@@ -34,7 +34,7 @@ for fileInfo in fileList:
     img_data = np.array(Image.open(fileInfo[0]))[:,:,:3]
     descriptors = get_descriptors(img_data)
     
-    save_vector_to_profile(profileDB, name, descriptors)
+    save_vector_to_profile(profileDB, name, descriptors[0])
     
     move(fileInfo[0], fileInfo[2])
     
