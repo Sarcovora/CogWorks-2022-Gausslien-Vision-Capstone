@@ -13,7 +13,7 @@ layout = [  [sg.Radio('Upload an image', 1), sg.Radio('Take a photo with your we
             [sg.Button('Ok'), sg.Button('Cancel')] ]
 
 # Create the Window
-window = sg.Window('Window Title', layout)
+window = sg.Window('Face Identifier', layout)
 # Event Loop to process "events" and get the "values" of the inputs
 while True:
     event, values = window.read()
