@@ -75,3 +75,20 @@ def file_move_test(file_path: str, group_num: int):
     new_file_path = new_folder_path / file_name
     print(new_file_path)
     Path(file_path).rename(new_file_path)
+    
+def move_back(num_folders: int):
+    cwd = Path.cwd()
+     for group_num in range(1, num_folders+1):
+            person_id = 'Person' + str(group_num)
+            folder_path = cwd.parents[0] / person_id
+            
+            files = []
+            for filename in os.listdir(folder_path):
+            f = os.path.join(folder_path, filename)
+            if os.path.isfile(f):
+                files.append(f)
+            
+            for file in files:
+                file_name = Path(file_path).name
+                new_file_path = cwd/ 'Whiskers_Images' / file_name
+                Path(file_path).rename(new_file_path)
