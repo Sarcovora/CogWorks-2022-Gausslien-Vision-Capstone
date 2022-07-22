@@ -32,7 +32,7 @@ def nodes_adj_graph(image_paths:list):
         image = io.imread(image_paths[i])
         if image.shape[-1] == 4:
             image = image[..., :-1]
-        print(image_paths[i])
+#         print(image_paths[i])
         descriptors[i] = get_descriptors(image)
         
         
@@ -47,7 +47,7 @@ def nodes_adj_graph(image_paths:list):
             if (distance < threshold):
                 adj_graph[i,j] = 1/(distance**2)
                 adj_graph[j,i] = 1/(distance**2)
-        nodes.append(Node(i, np.nonzero(adj_graph[i]), descriptors[i]))
+        nodes.append(Node(i, np.nonzero(adj_graph[i])[0], descriptors[i]))
             
     return nodes, adj_graph
     

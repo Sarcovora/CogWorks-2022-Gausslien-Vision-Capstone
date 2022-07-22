@@ -5,6 +5,7 @@ def propagate_label(node, neighbors, adjacency_matrix):
     # returns nothing, just updates in place
     highest_weight = 0
     for neighbor in neighbors:
+        print(neighbor)
         if adjacency_matrix[node.id][neighbor.id] > highest_weight:
             highest_weight = adjacency_matrix[node.id][neighbor.id]
             node.label = neighbor.label
