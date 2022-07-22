@@ -2,7 +2,7 @@
 import skimage.io as io
 import numpy as np
 from facenet_models import FacenetModel
-from CogBook import cos_distance
+from cos_distance.py import cos_distance
 
 def nodes_adj_graph(image_paths:list):
     """
