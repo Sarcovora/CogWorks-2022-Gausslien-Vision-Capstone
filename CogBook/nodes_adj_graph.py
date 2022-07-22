@@ -47,7 +47,7 @@ def nodes_adj_graph(image_paths:list):
             if (distance < threshold):
                 adj_graph[i,j] = 1/(distance**2)
                 adj_graph[j,i] = 1/(distance**2)
-        nodes.append(Node(i, np.nonzero(adj_graph[i])[0], descriptors[i]))
+        nodes.append(Node(i, np.nonzero(adj_graph[i])[0], descriptors[i], file_path=image_paths[i]))
             
     return nodes, adj_graph
     
