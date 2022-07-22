@@ -41,7 +41,7 @@ class Node:
 
         # (n1_ID, n2_ID, ...)
         # The IDs of this nodes neighbors. Empty if no neighbors
-        self.neighbors = tuple(neighbors)
+        self.neighbors = neighbors
         self.descriptor = descriptor
 
         self.truth = truth

@@ -1,6 +1,8 @@
 import numpy as np
 import random
 from pathlib import Path
+from connected_components import connected_components
+from propagate_label import propagate_label
 
 """ The full whiskers algorithm
 
@@ -17,7 +19,8 @@ def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
     num_grouping_history = []
     for i in range(0, iterations):
         node = nodes[random.randint(0, len(nodes)-1)]
-        propagate_label(node, node.neighbors, adj_matrix)
+        neighbors = [nodes[i] for i in node.neighbors]
+        propagate_label(node, neighbors, adj_matrix)
         groupings = connected_components(nodes)
         num_grouping_history.append(len(groupings))
     print(num_grouping_history)
