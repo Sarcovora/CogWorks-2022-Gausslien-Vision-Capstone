@@ -50,5 +50,7 @@ def query_database(vector):
         if cos_distance(profile.avg_vector(),vector) < mindist:
             mindist = cos_distance(profile.avg_vector(),vector)
             minname = name
-    
-    return minname
+    if mindist<0.5:
+        return minname
+    else:
+        return "unknown"
