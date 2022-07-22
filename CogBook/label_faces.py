@@ -17,7 +17,7 @@ def label_faces(image_data):
     image_data : numpy.ndarray, shape-(R, C, 3) (RGB is the last dimension)
         Pixel information for the image.
     """
-
+    
     # this will download the pretrained weights (if they haven't already been fetched)
     # which should take just a few seconds
     model = FacenetModel()
@@ -34,9 +34,9 @@ def label_faces(image_data):
     names = []
     for d in descriptors:
         names.append(query_database(d))
-
+    
     fig, ax = plt.subplots()
-    ax.imshow(pic)
+    ax.imshow(image_data)
 
     i = 0
     for box, prob in zip(boxes, probabilities):
@@ -50,8 +50,3 @@ def label_faces(image_data):
                 va="center",
                 bbox=dict(boxstyle="round", ec=(1., 0.5, 0.5), fc=(1., 0.8, 0.8),))
         i += 1
-
-
-
-
-
