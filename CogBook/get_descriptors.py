@@ -1,6 +1,6 @@
 from facenet_models import FacenetModel
 
-def get_descriptors(image_data):
+def get_descriptors(image_data, *, detect_thresh=0.97):
     """
     Returns a descriptors numpy array.
 
@@ -18,6 +18,9 @@ def get_descriptors(image_data):
     model = FacenetModel()
     boxes, probabilities, _ = model.detect(image_data)
     descriptors = model.compute_descriptors(image_data, boxes)
-    for prob in probabilities:
-        print(prob)
-    return descriptors
+    
+    output = []
+    for i in range(len(descriptors)):
+        if (probabilities[i] >= detect_thresh):
+            output.append(descriptors[i])
+    return np.array(output)
