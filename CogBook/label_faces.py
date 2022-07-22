@@ -29,14 +29,24 @@ def label_faces(image_data):
     # producing a face descriptor for each face
     # returns a (N, 512) array, where N is the number of boxes
     # and each descriptor vector is 512-dimensional
+    fig, ax = plt.subplots()
+    ax.imshow(image_data)
+    if (boxes is None):
+        x = image_data.shape[1] // 2
+        y = image_data.shape[0] // 2
+        ax.text(x, y,
+                "GIMME A FACE",
+                size=50,
+                va="center",
+                ha="center",
+                bbox=dict(boxstyle="round", ec=(1., 0.5, 0.5), fc=(1., 0.8, 0.8),))
+        plt.show()
+        return
     descriptors = model.compute_descriptors(image_data, boxes)
 
     names = []
     for d in descriptors:
         names.append(query_database(d).capitalize())
-    
-    fig, ax = plt.subplots()
-    ax.imshow(image_data)
 
     i = 0
     for box, prob in zip(boxes, probabilities):
