@@ -6,7 +6,7 @@ from matplotlib.pyplot import text
 
 from PIL import Image
 
-from profile_functionality import query_database
+from CogBook import query_database
 
 def label_faces(image_data, *, box_threshold=0.97, iden_threshold=0.5):
     """
