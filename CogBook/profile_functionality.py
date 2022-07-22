@@ -43,6 +43,22 @@ def save_vector_to_profile(profiles_dict, name, vector):
     profiles_dict[name].add_vector(vector)
 
 def query_database(vector, iden_threshold):
+    """
+    Queries the database for matches with the provided vector and identification threshold
+
+    Parameters
+    ----------
+    vector : numpy.ndarray, shape-(512,)
+        Descriptor vector for the input face
+
+    iden_threshold : float
+        The minimum cosine distance necessary for the function to consider two vectors a match
+
+    Returns
+    -------
+    string
+        The name of the profile that matches the provided vector most closely. Will return "unknown" if no match is found.
+    """
     profiles_dict = load_profiles_from_file()
     
     mindist = 2
