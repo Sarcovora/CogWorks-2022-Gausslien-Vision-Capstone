@@ -13,6 +13,7 @@ CogBook/nodes_adj_graph.py
 CogBook/profile_functionality.py
 CogBook/propagate_label.py
 CogBook/reset_database.py
+CogBook/take_photo.py
 CogBook/update_database.py
 CogBook/whiskers.py
 CogBook.egg-info/PKG-INFO
