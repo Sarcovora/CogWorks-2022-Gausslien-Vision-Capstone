@@ -32,7 +32,7 @@ def whiskers(iterations: int, nodes: list, adj_matrix: np.array):
         
             
 #         # moves the images in this group
-    count = 1
+    count = 0
 
     for key in groupings.keys():
         person_id = 'Person' + str(count+1)
@@ -65,7 +65,13 @@ def file_move_test(file_path: str, group_num: int):
 
     new_file_path = new_folder_path / file_name
     Path(file_path).rename(new_file_path)
-    
+
+"""
+Moves the images back to the original folder
+Parameters:
+    num_folders (int): the number of folders created by the last run of the whispers algorithms,
+                       needs to be from Folder 1 to Folder num_folders
+"""
 def move_back(num_folders: int):
     cwd = Path.cwd()
     for group_num in range(1, num_folders+1):
